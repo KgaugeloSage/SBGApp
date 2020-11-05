@@ -13,12 +13,14 @@ import com.example.standardbankapp.repository.signActivities.VoiceRecog
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var mylist : ListView
     private val list = mutableListOf("Using Fingerprint","Voice Recognition","Face Recognition","With A 4-Digit PIN")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val mylist : ListView = findViewById(R.id.navigator_list)
+        mylist = findViewById(R.id.navigator_list)
+
 
         mylist.adapter = MyAdapter(this, R.layout.list_view, list)
 
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onStart() {
+        mylist.adapter = MyAdapter(this, R.layout.list_view, list.shuffled())
         Log.e("Main", "onStart started")
         super.onStart()
     }
