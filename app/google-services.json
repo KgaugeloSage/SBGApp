@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "63126172306",
+    "firebase_url": "https://standardbank-app-40a63.firebaseio.com",
+    "project_id": "standardbank-app-40a63",
+    "storage_bucket": "standardbank-app-40a63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:63126172306:android:2666d94463597d84662c4b",
+        "android_client_info": {
+          "package_name": "com.example.standardbankapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "63126172306-gcrosi61k26ftusgkarbr12qluukl8gq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCVMcOzqSf8ikNuZYomB7fIBk-uKeoGW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "63126172306-gcrosi61k26ftusgkarbr12qluukl8gq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sgbapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SGBApp">
+        <activity android:name="com.example.standardbankapp.MainActivity3"></activity>
+        <activity android:name="com.example.standardbankapp.MainActivity2" />
+        <activity android:name="com.example.standardbankapp.repository.signActivities.FingerPrint" />
+        <activity android:name="com.example.standardbankapp.repository.signActivities.VoiceRecog" />
+        <activity android:name="com.example.standardbankapp.repository.signActivities.PinActivity" />
+        <activity android:name="com.example.standardbankapp.repository.signActivities.FaceRecog" />
+        <activity
+            android:name="com.example.standardbankapp.MainActivity"
+            android:label="Choose How to Sign In" />
+        <activity
+            android:name="com.example.standardbankapp.LoginActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name="com.example.standardbankapp.SplashScreen"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
