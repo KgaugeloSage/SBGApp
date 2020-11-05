@@ -53,9 +53,11 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    finish()
                 }else{
                     Toast.makeText(this@LoginActivity, "Incorrect Credentials", Toast.LENGTH_SHORT).show()
                 }
             }
+
     }
 }

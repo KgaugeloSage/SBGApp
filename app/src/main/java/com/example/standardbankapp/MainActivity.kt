@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         mylist.adapter = MyAdapter(this, R.layout.list_view, list)
 
-        mylist.setOnItemClickListener { parent, view, position, id ->
+        mylist.setOnItemClickListener { parent, _, position, _ ->
 
             if (parent.getItemAtPosition(position).toString()=="Using Fingerprint"){
 
