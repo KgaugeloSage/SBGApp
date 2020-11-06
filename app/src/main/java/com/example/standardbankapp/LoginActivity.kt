@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
+     private val loadingDialog : LoadingDialog = LoadingDialog(this)
+
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val btnLogin: Button = findViewById(R.id.btn_login)
-        val edtEmail: EditText = findViewById(R.id.edt_username)
+        val edtEmail: EditText = findViewById(R.id.edt_email)
         val edtPassword: EditText = findViewById(R.id.edt_password)
         val hideShowPassword : TextView = findViewById(R.id.show_hide_password)
 
@@ -41,21 +43,30 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
-           login(edtEmail.text.toString(),edtPassword.text.toString())
+            if (edtEmail.text.toString() == ""){
+               edtEmail.error = "Enter Email"
+            }else if (edtPassword.text.toString() == ""){
+                edtPassword.error = "Enter Password"
+            }else{
+                login(edtEmail.text.toString(),edtPassword.text.toString())
+            }
+
         }
 
     }
 
     private fun login(email : String, password : String) {
        val firebaseAuth : FirebaseAuth = FirebaseAuth.getInstance()
-
+        loadingDialog.startDialog()
         firebaseAuth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()
+                    loadingDialog.stopDialog()
                 }else{
                     Toast.makeText(this@LoginActivity, "Incorrect Credentials", Toast.LENGTH_SHORT).show()
+                    loadingDialog.stopDialog()
                 }
             }
 
