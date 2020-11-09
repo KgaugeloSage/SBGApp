@@ -43,12 +43,16 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
-            if (edtEmail.text.toString() == ""){
-               edtEmail.error = "Enter Email"
-            }else if (edtPassword.text.toString() == ""){
-                edtPassword.error = "Enter Password"
-            }else{
-                login(edtEmail.text.toString(),edtPassword.text.toString())
+            when {
+                edtEmail.text.toString() == "" -> {
+                    edtEmail.error = "Enter Email"
+                }
+                edtPassword.text.toString() == "" -> {
+                    edtPassword.error = "Enter Password"
+                }
+                else -> {
+                    login(edtEmail.text.toString(),edtPassword.text.toString())
+                }
             }
 
         }

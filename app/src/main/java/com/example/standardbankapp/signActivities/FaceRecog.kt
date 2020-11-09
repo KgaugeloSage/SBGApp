@@ -1,4 +1,4 @@
-package com.example.standardbankapp.repository.signActivities
+package com.example.standardbankapp.signActivities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

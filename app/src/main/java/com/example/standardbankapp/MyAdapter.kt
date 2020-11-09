@@ -18,7 +18,7 @@ class MyAdapter (var mycontext: Context, var recources : Int, var item: List<Str
 
         val description: TextView = view.findViewById(R.id.list_header)
 
-        var item : String = item[position]
+        val item : String = item[position]
         description.text = item
         return view
     }

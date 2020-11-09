@@ -3,13 +3,12 @@ package com.example.standardbankapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import com.example.sgbapp.R
-import com.example.standardbankapp.repository.signActivities.FaceRecog
-import com.example.standardbankapp.repository.signActivities.FingerPrint
-import com.example.standardbankapp.repository.signActivities.PinActivity
-import com.example.standardbankapp.repository.signActivities.VoiceRecog
+import com.example.standardbankapp.signActivities.FaceRecog
+import com.example.standardbankapp.signActivities.FingerPrint
+import com.example.standardbankapp.signActivities.PinActivity
+import com.example.standardbankapp.signActivities.VoiceRecog
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,29 +25,33 @@ class MainActivity : AppCompatActivity() {
 
         mylist.setOnItemClickListener { parent, _, position, _ ->
 
-            if (parent.getItemAtPosition(position).toString()=="Using Fingerprint"){
+            when {
+                parent.getItemAtPosition(position).toString()=="Using Fingerprint" -> {
 
-                startActivity(Intent(this,FingerPrint::class.java))
-                Toast.makeText(this, parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
-            }else if (parent.getItemAtPosition(position).toString()=="Voice Recognition"){
+                    startActivity(Intent(this, FingerPrint::class.java))
+                    Toast.makeText(this, parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
+                }
+                parent.getItemAtPosition(position).toString()=="Voice Recognition" -> {
 
-                startActivity(Intent(this,VoiceRecog::class.java))
-                Toast.makeText(this, parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
-            }else if (parent.getItemAtPosition(position).toString()=="Face Recognition"){
+                    startActivity(Intent(this, VoiceRecog::class.java))
+                    Toast.makeText(this, parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
+                }
+                parent.getItemAtPosition(position).toString()=="Face Recognition" -> {
 
-                startActivity(Intent(this,FaceRecog::class.java))
-                Toast.makeText(this, parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
-            }else if (parent.getItemAtPosition(position).toString()=="With A 4-Digit PIN"){
+                    startActivity(Intent(this, FaceRecog::class.java))
+                    Toast.makeText(this, parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
+                }
+                parent.getItemAtPosition(position).toString()=="With A 4-Digit PIN" -> {
 
-                startActivity(Intent(this,PinActivity::class.java))
-                Toast.makeText(this,parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, PinActivity::class.java))
+                    Toast.makeText(this,parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
 
     override fun onStart() {
         mylist.adapter = MyAdapter(this, R.layout.list_view, list.shuffled())
-        Log.e("Main", "onStart started")
         super.onStart()
     }
 

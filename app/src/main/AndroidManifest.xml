@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SGBApp">
-        <activity android:name="com.example.standardbankapp.repository.signActivities.FingerPrint" />
-        <activity android:name="com.example.standardbankapp.repository.signActivities.VoiceRecog" />
-        <activity android:name="com.example.standardbankapp.repository.signActivities.PinActivity" />
-        <activity android:name="com.example.standardbankapp.repository.signActivities.FaceRecog" />
+        <activity android:name="com.example.standardbankapp.signActivities.FingerPrint" />
+        <activity android:name="com.example.standardbankapp.signActivities.VoiceRecog" />
+        <activity android:name="com.example.standardbankapp.signActivities.PinActivity" />
+        <activity android:name="com.example.standardbankapp.signActivities.FaceRecog" />
         <activity
             android:name="com.example.standardbankapp.MainActivity"
             android:label="Choose How to Sign In" />
