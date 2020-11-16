@@ -1,12 +1,12 @@
-package com.example.standardbankapp.signActivities
+package com.example.standardbankapp.views.signActivities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sgbapp.R
 
-class FaceRecog : AppCompatActivity() {
+class VoiceRecog : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_face_recog)
+        setContentView(R.layout.activity_voice_recog)
     }
 }

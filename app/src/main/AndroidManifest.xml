@@ -11,18 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SGBApp">
-        <activity android:name="com.example.standardbankapp.signActivities.FingerPrint" />
-        <activity android:name="com.example.standardbankapp.signActivities.VoiceRecog" />
-        <activity android:name="com.example.standardbankapp.signActivities.PinActivity" />
-        <activity android:name="com.example.standardbankapp.signActivities.FaceRecog" />
+        <activity android:name="com.example.standardbankapp.views.signActivities.FingerPrint"
+            android:label="Using Fingerprint"/>
+        <activity android:name="com.example.standardbankapp.views.signActivities.VoiceRecog"
+            android:label="Voice Recognition"/>
+        <activity android:name="com.example.standardbankapp.views.signActivities.PinActivity"
+            android:label="With A 4-Digit PIN"/>
+        <activity android:name="com.example.standardbankapp.views.signActivities.FaceRecog"
+            android:label="Face Recognition"/>
         <activity
-            android:name="com.example.standardbankapp.MainActivity"
+            android:name="com.example.standardbankapp.views.MainActivity"
             android:label="Choose How to Sign In" />
         <activity
-            android:name="com.example.standardbankapp.LoginActivity"
+            android:name="com.example.standardbankapp.views.LoginActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name="com.example.standardbankapp.SplashScreen"
+            android:name="com.example.standardbankapp.views.SplashScreen"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

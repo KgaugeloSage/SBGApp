@@ -1,12 +1,12 @@
-package com.example.standardbankapp.signActivities
+package com.example.standardbankapp.views.signActivities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sgbapp.R
 
-class PinActivity : AppCompatActivity() {
+class FaceRecog : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pin)
+        setContentView(R.layout.activity_face_recog)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.standardbankapp
+package com.example.standardbankapp.views
 
 import android.annotation.SuppressLint
 import android.app.Activity

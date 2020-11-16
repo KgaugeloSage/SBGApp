@@ -1,4 +1,4 @@
-package com.example.standardbankapp
+package com.example.standardbankapp.views
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -9,17 +9,17 @@ import android.text.method.PasswordTransformationMethod
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.sgbapp.R
-import com.google.firebase.auth.FirebaseAuth
+import com.example.standardbankapp.viewmodel.LoginViewModel
 
 
 class LoginActivity : AppCompatActivity() {
 
-     private val loadingDialog : LoadingDialog = LoadingDialog(this)
-
+    lateinit var loginActivityViewModel : LoginViewModel
     @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +30,15 @@ class LoginActivity : AppCompatActivity() {
         val edtEmail: EditText = findViewById(R.id.edt_email)
         val edtPassword: EditText = findViewById(R.id.edt_password)
         val hideShowPassword : TextView = findViewById(R.id.show_hide_password)
+
+        loginActivityViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+
+        loginActivityViewModel.getUserMutableLiveData()?.observe(this, Observer {
+            if (it != null) {
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+        })
 
         hideShowPassword.setOnClickListener {
             if (hideShowPassword.text.toString() == "SHOW"){
@@ -51,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                     edtPassword.error = "Enter Password"
                 }
                 else -> {
-                    login(edtEmail.text.toString(),edtPassword.text.toString())
+                    loginActivityViewModel.login(edtEmail.text.toString(), edtPassword.text.toString(), this)
                 }
             }
 
@@ -59,20 +68,5 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun login(email : String, password : String) {
-       val firebaseAuth : FirebaseAuth = FirebaseAuth.getInstance()
-        loadingDialog.startDialog()
-        firebaseAuth.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener {
-                if (it.isSuccessful){
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
-                    loadingDialog.stopDialog()
-                }else{
-                    Toast.makeText(this@LoginActivity, "Incorrect Credentials", Toast.LENGTH_SHORT).show()
-                    loadingDialog.stopDialog()
-                }
-            }
 
-    }
 }

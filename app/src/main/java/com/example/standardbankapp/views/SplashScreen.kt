@@ -1,4 +1,4 @@
-package com.example.standardbankapp
+package com.example.standardbankapp.views
 
 import android.content.Intent
 import android.os.Bundle
@@ -27,14 +27,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler().postDelayed(
             {
-                if (user != null) {
-                    Toast.makeText(this@SplashScreen,"Welcome", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@SplashScreen, MainActivity::class.java))
-                } else {
-                    Toast.makeText(this@SplashScreen,"Please Login", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this@SplashScreen, LoginActivity::class.java))
-                }
-
                 finish()
             }, 4000
         )
